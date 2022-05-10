@@ -1,0 +1,6 @@
+﻿  pch.cpp
+  CAKitViewer_v0.5.cpp
+d:\04_cakit\01_sw\10_cakitviewer\cakitviewer_v0.5\cakitviewer_v0.5\cakitviewer_v0.5dlg.h(7): fatal error C1083: 포함 파일을 열 수 없습니다. 'opencv2/opencv.hpp': No such file or directory
+  CAKitViewer_v0.5Dlg.cpp
+d:\04_cakit\01_sw\10_cakitviewer\cakitviewer_v0.5\cakitviewer_v0.5\cakitviewer_v0.5dlg.h(7): fatal error C1083: 포함 파일을 열 수 없습니다. 'opencv2/opencv.hpp': No such file or directory
+  코드를 생성하고 있습니다...
