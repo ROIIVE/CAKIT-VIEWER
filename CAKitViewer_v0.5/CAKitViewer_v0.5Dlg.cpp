@@ -606,6 +606,50 @@ void CCAKitViewerv05Dlg::Camera_in()
 
 	Mat frame, resizeframe;
 	
+	gROICENTER1 = INIReadInt("ROI_CENTER", "CENTER_1", 0);
+	gROICENTER2 = INIReadInt("ROI_CENTER", "CENTER_2", 0);
+	gROICENTER3 = INIReadInt("ROI_CENTER", "CENTER_3", 0);
+	gROICENTER4 = INIReadInt("ROI_CENTER", "CENTER_4", 0);
+	gROICT1 = INIReadInt("ROI_CT", "CT_1", 0);
+	gROICT2 = INIReadInt("ROI_CT", "CT_2", 0);
+	gROICT3 = INIReadInt("ROI_CT", "CT_3", 0);
+	gROICT4 = INIReadInt("ROI_CT", "CT_4", 0);
+	gROILT1 = INIReadInt("ROI_LT", "LT_1", 0);
+	gROILT2 = INIReadInt("ROI_LT", "LT_2", 0);
+	gROILT3 = INIReadInt("ROI_LT", "LT_3", 0);
+	gROILT4 = INIReadInt("ROI_LT", "LT_4", 0);
+	gROILB1 = INIReadInt("ROI_LB", "LB_1", 0);
+	gROILB2 = INIReadInt("ROI_LB", "LB_2", 0);
+	gROILB3 = INIReadInt("ROI_LB", "LB_3", 0);
+	gROILB4 = INIReadInt("ROI_LB", "LB_4", 0);
+	gROIRT1 = INIReadInt("ROI_RT", "RT_1", 0);
+	gROIRT2 = INIReadInt("ROI_RT", "RT_2", 0);
+	gROIRT3 = INIReadInt("ROI_RT", "RT_3", 0);
+	gROIRT4 = INIReadInt("ROI_RT", "RT_4", 0);
+	gROIRB1 = INIReadInt("ROI_RB", "RB_1", 0);
+	gROIRB2 = INIReadInt("ROI_RB", "RB_2", 0);
+	gROIRB3 = INIReadInt("ROI_RB", "RB_3", 0);
+	gROIRB4 = INIReadInt("ROI_RB", "RB_4", 0);
+
+	gDeviceGAP = INIReadInt("Spec", "Spec_GAP", 0);
+
+	gDeviceCenter = INIReadInt("Spec", "Spec_CENTER", 0);
+	gDeviceCenter_Offset = INIReadInt("Offset", "Center_Offset", 0);
+
+	gDeviceCT = INIReadInt("Spec", "Spec_CT", 0);
+	gDeviceCT_Offset = INIReadInt("Offset", "CT_Offset", 0);
+
+	gDeviceLT = INIReadInt("Spec", "Spec_LT", 0);
+	gDeviceLT_Offset = INIReadInt("Offset", "LT_Offset", 0);
+
+	gDeviceLB = INIReadInt("Spec", "Spec_LB", 0);
+	gDeviceLB_Offset = INIReadInt("Offset", "LB_Offset", 0);
+
+	gDeviceRT = INIReadInt("Spec", "Spec_RT", 0);
+	gDeviceRT_Offset = INIReadInt("Offset", "RT_Offset", 0);
+
+	gDeviceRB = INIReadInt("Spec", "Spec_RB", 0);
+	gDeviceRB_Offset = INIReadInt("Offset", "RB_Offset", 0);
 
 	while (true) {
 
@@ -1039,7 +1083,15 @@ void CCAKitViewerv05Dlg::Update() {
 	gDeviceRB_Offset = INIReadInt("Offset", "RB_Offset", 0);
 
 }
+unsigned int CCAKitViewerv05Dlg::INIReadInt(LPCTSTR lpAppName, LPCTSTR lpKey, INT nDefault)
+{
+	// TODO: 여기에 구현 코드 추가
+	char filedir[MAX_PATH] = { 0 };
 
+	//_getcwd(rootdir, MAX_PATH);  //프로그램 수행시의 절대경로여야 한다. 파일저장 후 현재경로는 바뀌므로 사용불가
+	wsprintf(filedir, "%s\\Ref\\CAKit_OPTION.ini", gRootDir);
+	return GetPrivateProfileInt(lpAppName, lpKey, nDefault, filedir);
+}
 
 void CCAKitViewerv05Dlg::OnBnClickedButton3()
 {
